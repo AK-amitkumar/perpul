@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="ir_cron_confirm_salesorders" model="ir.cron">
+            <field name="name">Confirm and Send Salesorders</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">10</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'bc_confirm_and_send_so.bc_confirm_and_send'"/>
+            <field name="function" eval="'scheduler_tick_orders'"/>
+            <field name="args" eval="'()'"/>
+            <field name="priority">20</field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+	<data>
+		<!--demo data for SEO global variable -->
+        <record id="global_name_1" model="seo.global.variable">
+        	<field name="name">[var product_name]</field>
+        </record>
+        <record id="global_name_2" model="seo.global.variable">
+        	<field name="name">[var product_color]</field>
+        </record>
+        <record id="global_name_3" model="seo.global.variable">
+        	<field name="name">[var product_price]</field>
+        </record>
+        <record id="global_name_4" model="seo.global.variable">
+        	<field name="name">[var category_name]</field>
+        </record>
+        <record id="global_name_5" model="seo.global.variable">
+        	<field name="name">[var category_parent_name]</field>
+        </record>
+        <record id="global_name_6" model="seo.global.variable">
+        	<field name="name">[var category_lowprice]</field>
+        </record>
+       <record id="global_name_7" model="seo.global.variable">
+        	<field name="name">[var store_name]</field>
+        </record>
+        <record id="global_name_8" model="seo.global.variable">
+        	<field name="name">[var store_email]</field>
+        </record>
+         <record id="global_name_9" model="seo.global.variable">
+        	<field name="name">[var store_website]</field>
+        </record>
+        
+    </data>
+     
+     <!--add one record for set SEO limit in configuration -->
+	      <record id="seo_template_1" model="seo.template.setting">
+	        	<field name="name">SEO Setting</field>
+	        	<!-- <field name="product_name_limit">25</field> -->
+	        	<field name="meta_title_limit">55</field>
+	        	<field name="meta_description_limit">150</field>
+	      </record>
+</flectra>

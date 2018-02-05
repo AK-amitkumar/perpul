@@ -1,0 +1,30 @@
+<flectra>
+    <data>
+        <template id="professional_templates_pricing" inherit_id="website_quote.pricing">
+            <xpath expr="//section[@id='quote']" position="replace">
+                <section>
+                <div class="col-xs-12" style="border-radius: 3px; box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);padding: 8px; page-break-inside: avoid;">
+                    <t t-set="doc" t-value="quotation"/>
+                    <t t-set="style" t-value="quotation.style"/>
+                    <t t-set="portal" t-value="True"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_1_document'" t-call="professional_templates.SO_1_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_2_document'" t-call="professional_templates.SO_2_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_3_document'" t-call="professional_templates.SO_3_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_4_document'" t-call="professional_templates.SO_4_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_5_document'" t-call="professional_templates.SO_5_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_6_document'" t-call="professional_templates.SO_6_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_7_document'" t-call="professional_templates.SO_7_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_8_document'" t-call="professional_templates.SO_8_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_9_document'" t-call="professional_templates.SO_9_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_10_document'" t-call="professional_templates.SO_10_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_11_document'" t-call="professional_templates.SO_11_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_12_document'" t-call="professional_templates.SO_12_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="style.template_so.key == 'professional_templates.SO_13_document'" t-call="professional_templates.SO_13_document" t-lang="doc.partner_id.lang"/>
+                    <t t-if="not style" t-call="sale.report_saleorder_document" t-lang="doc.partner_id.lang"/>
+                </div>
+                </section>
+                <div class="col-xs-12 mt8"/>
+            </xpath>
+        </template>
+    </data>
+</flectra>

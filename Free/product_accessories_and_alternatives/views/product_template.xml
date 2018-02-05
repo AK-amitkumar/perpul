@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.only.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="%(product_accessories_wizard_action)d"
+                        class="oe_inline oe_stat_button"
+                        type="action"
+                        icon="fa-compass"
+                >
+                    <field name="accessories_count" string="Accessories" widget="statinfo"/>
+                </button>
+                <button name="%(product_alternatives_wizard_action)d"
+                        class="oe_inline oe_stat_button"
+                        type="action"
+                        icon="fa-info-circle"
+                >
+                    <field name="alternatives_count" string="Alternatives" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</flectra>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_seo_template_public_user,seo.product.template.public,model_seo_product_template,base.group_portal,1,1,0,0
+access_seo_template_manager,seo.product.template,model_seo_product_template,seo_suite_flectra_ecommerce.group_seo_manager,1,1,1,1
+access_seo_template_user,seo.product.template,model_seo_product_template,seo_suite_flectra_ecommerce.group_seo_user,1,1,1,0
+access_seo_global_variable_public_user,seo.global.variable.public,model_seo_global_variable,base.group_portal,1,1,0,0
+access_seo_global_variable_manager,seo.global.variable,model_seo_global_variable,seo_suite_flectra_ecommerce.group_seo_manager,1,1,1,1
+access_seo_global_variable_user,seo.global.variable,model_seo_global_variable,seo_suite_flectra_ecommerce.group_seo_user,1,1,1,0
+access_seo_template_setting_public_user,seo.template.setting.public,model_seo_template_setting,base.group_portal,1,1,0,0
+access_seo_template_setting_manager,seo.template.setting,model_seo_template_setting,seo_suite_flectra_ecommerce.group_seo_manager,1,1,1,1
+access_seo_template_setting_user,seo.template.setting,model_seo_template_setting,seo_suite_flectra_ecommerce.group_seo_user,1,1,1,0

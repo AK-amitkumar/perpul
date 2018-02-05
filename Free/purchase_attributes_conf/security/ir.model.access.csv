@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_attribute_purchase_manager,product.attribute manager,product.model_product_attribute,purchase.group_purchase_manager,1,1,1,1
+access_product_attribute_value_purchase_manager,product.attribute.value manager,product.model_product_attribute_value,purchase.group_purchase_manager,1,1,1,1

@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    Perpul
+#    Copyright (C) 2016 CodUP (<http://codup.com>).
+#
+##############################################################################
+
+from flectra import api, fields, models
+
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
+
+    @api.multi
+    def print_quotation(self):
+        self.filtered(lambda s: s.state == 'draft').write({'state': 'sent'})
+        return self.env['report'].get_action(self, 'l10n_by_doc.report_order')
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:        

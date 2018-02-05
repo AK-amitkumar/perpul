@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+	
+	<record model="ir.module.category" id="module_seo_template">
+            <field name="name">SEO Suite</field>
+            <field name="sequence">105</field>
+    </record>
+	
+	<record id="group_seo_user" model="res.groups">
+	        <field name="name">Users</field>
+	        <field name="category_id" ref="module_seo_template"/>
+	</record>
+	     
+	<record id="group_seo_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="implied_ids" eval="[(4, ref('group_seo_user'))]"/>
+        <field name="category_id" ref="module_seo_template"/>
+	</record>
+	
+	
+	<record id= "view_global_variable" model="ir.ui.view">
+   			 <field name="name">seo.global.variable.tree</field>
+            <field name="model">seo.global.variable</field>
+            <field name="arch" type="xml">
+            		<tree>	
+            			<field name="name"></field>
+            		</tree>
+            </field>
+   </record>
+	     
+	<record id="seo_product_template_search_view" model="ir.ui.view">
+            <field name="name">SEO Product Template Search View</field>
+            <field name="model">seo.product.template</field>
+            <field name=""></field>
+            <field name="arch" type="xml">
+                <search string="SEO Template Search">
+                	<field name="template_type"/>
+                    <field name="name"/>
+                    <field name="product_ids" string="Product Name"/>
+                    <field name="category_ids" string="Category Name"/>
+                    <filter string="Enabled" name="enable_state" domain="[('state', '=', 'Enable')]" help="Enable Template"/>
+                    <filter string="Global" name="global" domain="[('is_global', '=', True)]" help="global Template"/>
+                    <group expand="0" string="Group By">
+                   		<filter string="Template Type" context="{'group_by':'template_type'}"/>
+                    </group>
+                </search>
+            </field>
+     </record>  
+	     
+   <record id="seo_templates_form" model="ir.ui.view">
+            <field name="name">seo.product.template.form</field>
+            <field name="model">seo.product.template</field>
+            <field name="arch" type="xml">
+                <form string="arch">
+                	 <header>
+                	 	<button string="Enable" name="go_to_enable" type="object" class="oe_highlight" states="Draft"/>
+                	 	<button string="Disable" name="go_to_disable" type="object" class="oe_highlight" states="Enable"/>
+                	 	<button string="Reset To Draft" name="reset_to_draft" type="object" class="oe_highlight" states="Disable,Enable"/>
+                	 	<!-- <button string="Confirm" name="go_to_confirm" type="object" class="oe_highlight" states="Draft"/> -->
+                	 	<!-- <button string="Add SEO Template" name="add_seo_template" type="object" class="oe_highlight"/> -->
+                	 	<field name="state" widget="statusbar" statusbar_visible="Draft,Enable,Disable" />
+                	 </header>
+                	<sheet>
+                		<div class="oe_button_box" name="button_box">
+                        <button name="open_view_global_variable" class="oe_stat_button" type="object" icon="fa-globe">
+								 Global Variable                      
+                        </button>
+                        </div>
+                        	<group>
+                        		<group>
+                        			 <field name="template_type" required="1"/>
+	                		   		 <field name="name" required="1"/>
+                        		</group>
+                        		<group></group>
+                        	</group>
+                			<group>
+	                		   <field name="title_h1" attrs="{'invisible': ['|',('template_type','=',False),('template_type','=','product')],'readonly': [('template_type','=',False)]}" />
+	                		   <field name="meta_title" attrs="{'readonly': [('template_type','=',False)]}"/>
+	                		   <field name="meta_keywords" attrs="{'readonly': [('template_type','=',False)]}" />
+	                		   <field name="meta_description" attrs="{'readonly': [('template_type','=',False)]}" />
+	                		   <field name="priority" attrs="{'readonly': [('template_type','=',False)]}"/>
+                			</group>
+                		  
+                		   <notebook>
+                		   <page string="SEO Description">
+                		   		<group>
+                		   		<label for="additional_seo_description_position"/>
+			                	<div>
+			                	<field name="additional_seo_description_position" attrs="{'readonly': [('template_type','=',False)]}" class="oe_inline"></field><span style="padding-left: 3px;" class="fa fa-question-circle" aria-hidden="true" title='You can set additional SEO description position there are two option whether you can set it bottom of the page or under description.'/>
+			                	 </div></group>
+                		   		<group>
+                		   		<label for="additional_seo_description"/>
+			                	<div>
+			                	<field name="additional_seo_description" attrs="{'readonly': ['|',('template_type','=',False),('additional_seo_description_position','=',False)]}" class="oe_inline"></field><span style="padding-left: 3px;" class="fa fa-question-circle" aria-hidden="true" title='You can set dynamic additional SEO description in every product as well category page for filtered or all products depending on the filter applied in the condition, You can set attribute name as value'/>
+			                	 </div>
+			                	</group>
+                		   </page>
+                		   <page string="Product Description" attrs="{'invisible': [('template_type','!=','product')],'readonly': [('template_type','=',False)]}">
+                		   		<group>
+                		   		<label for="image_alt_text"/>
+			                	<div>
+                		   		<field name="image_alt_text" class="oe_inline"/><span style="padding-left: 3px;" class="fa fa-question-circle" aria-hidden="true" title=' You can set dynamic Image ALT text for filtered Product OR all products depending on the filter applied in the condition,You can set attribute name as value.'/>
+                		   		</div>
+                		   		</group>
+                		   		<group>
+                		   		<field name="product_short_description" />
+                		   		</group>
+                		   		<group>
+                		        <field name="product_description"/>
+                		   		</group>
+                		   </page>
+                		   <page string="Apply On Product" attrs="{'invisible': ['|',('template_type','=',False),('template_type','in',['category','results_of_layered_navigation'])]}">
+                		   		<group>
+                		   			<field name="is_global"></field>
+                		   		</group>
+                		   		<group>
+                		        <field name="product_ids" nolabel="1"/>
+                		   		</group>
+                		   		<strong><div> <span style="padding-left: 50%" class="fa fa-plus" aria-hidden="true" title='	'/> </div></strong>
+                		   		<group>
+                		        <field name="product_template_category_ids" nolabel="1" />
+                		   		</group>
+                		   </page>
+                		   <page string="Apply On Category" attrs="{'invisible': ['|',('template_type','=',False),('template_type','=','product')]}">
+                		   		<group>
+                		   			<field name="is_global"></field>
+                		   		</group>
+                		   		<group>
+                		        <field name="category_ids" nolabel="1" />
+                		   		</group>
+                		   </page>
+                		   </notebook>
+                	</sheet>
+                	<div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+               </field>
+   </record>
+  
+   <record id="seo_templates_tree" model="ir.ui.view">
+            <field name="name">seo.product.template.tree</field>
+            <field name="model">seo.product.template</field>
+            <field name="arch" type="xml">
+                <tree string="arch">
+                    <field name="name" />
+                    <field name="template_type"/>
+                    <field name="priority"/>
+                    <field name="state"/>
+                 </tree>
+              </field>
+   </record> 
+    
+   <record id="seo_templates" model="ir.actions.act_window">
+        <field name="name">SEO Template</field>
+        <field name="res_model">seo.product.template</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+   </record>
+   
+   <menuitem id="menu_seo_suite" name="SEO Suite" parent="website.menu_website_configuration" sequence="99" groups="seo_suite_flectra_ecommerce.group_seo_user"/>
+   <menuitem id="menu_seo_suite_templates" name="SEO Templates" action="seo_templates" parent="menu_seo_suite" sequence="1"/>
+</flectra>

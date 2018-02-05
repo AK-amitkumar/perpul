@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+	<template id="website_sale_product_inherit" inherit_id="website_sale.product">
+       <!--  <xpath expr="//div/h1[@itemprop='name']" position="replace">
+        	<t t-if="title_h1">
+        	<h1 itemprop="name" t-esc="title_h1">Product Name</h1>
+        	</t>
+        	<t t-if="not title_h1">
+        	<h1 itemprop="name" t-field="product.name">Product Name</h1>
+        	</t> 
+        </xpath>
+        <xpath expr="//span[@t-field='product.name']" position="replace">
+        	 <t t-if="title_h1">
+         	 <span t-esc="title_h1" />
+         	 </t>
+        	 <t t-if="not title_h1">
+         	 <span t-field="product.name" />
+         	 </t>
+        </xpath> -->
+        
+        <xpath expr="//span[@itemprop='image']" position="replace">
+        	 <t t-if="image_alt_text">
+        	 <span itemprop="image" t-field="product.image" t-options="{'widget': 'image', 'class': 'product_detail_img','zoom': 'image', 'alt': image_alt_text}" groups="!website_sale.group_website_multi_image"/>
+        	 </t>
+        	 <t t-if="not image_alt_text">
+        	 <span itemprop="image" t-field="product.image" t-options="{'widget': 'image', 'class': 'product_detail_img', 'alt-field': 'name', 'zoom': 'image'}" groups="!website_sale.group_website_multi_image"/>
+        	 </t>
+        </xpath>
+        
+         <xpath expr="//div[@class='o_not_editable']" position="replace">
+        	<t t-if="product_short_description">
+        	<div class="o_not_editable">
+            <p t-raw="product_short_description"/>
+            </div>
+        	</t>
+        	<t t-if="not product_short_description">
+        	<div class="o_not_editable">
+            <p t-field="product.description_sale" class="text-muted" />
+            </div>
+        	</t>
+        </xpath>
+        
+        <xpath expr="//div[@id='product_full_description']" position="replace">
+         	<t t-if="product_description">
+         	<div itemprop="description" t-raw="product_description" class="oe_structure mt16" id="product_full_description" />
+         	</t>
+         	<t t-if="not product_description">
+         	<div itemprop="description" t-field="product.website_description" class="oe_structure mt16" id="product_full_description" />
+         	</t>
+         </xpath>
+        
+        <xpath expr="//div[@class='o_not_editable']" position="after">
+        	<t t-if="seo_product and seo_product.additional_seo_description_position == 'under_short_description' ">
+        	<div t-raw="additional_seo_description"/>
+        	</t>
+            <t t-if="not seo_product">
+        	</t>
+        </xpath>
+        
+        <xpath expr="//t[@t-call='website.layout']" position="after">
+        	<t t-if="seo_product and seo_product.additional_seo_description_position == 'bottom_of_the_page' ">
+        	<div t-raw="additional_seo_description"/>
+        	</t>
+        	<t t-if="not seo_product">
+        	</t>
+        </xpath>
+     </template>
+    
+     <template id="website_sale_product_metadata_inherit" inherit_id="website.layout">
+	        <xpath expr="//t[@t-if='not title']" position="replace">
+	        	<t t-if="not additional_title and main_object and 'name' in main_object">
+	            <t t-set="additional_title" t-value="main_object.name"/>
+	            </t>
+	        	<t t-if="meta_title">
+	            <t t-set="title" t-value="meta_title"/>
+	            </t>
+	            <t t-else="">
+	            <t t-set="title"><t t-if="additional_title"><t t-raw="additional_title"/> | </t><t t-raw="(website or res_company).name"/></t>
+	            </t>
+	        </xpath>
+	        
+	        <xpath expr="//meta[@name='description']" position="replace">
+	           <t t-if="meta_description">
+	           <meta name="description" t-att-content="seo_product and 'meta_description' in seo_product and meta_description or meta_description"/>
+	           </t>
+	           <t t-if="not meta_description">
+	           <meta name="description" t-att-content="main_object and 'website_meta_description' in main_object and main_object.website_meta_description or website_meta_description"/>
+	           </t>
+	         </xpath>
+	        
+	        <xpath expr="//meta[@name='keywords']" position="replace">
+	        	<t t-if="meta_keywords">
+	        	<meta name="keywords" t-att-content="seo_product and 'meta_keywords' in seo_product and meta_keywords or meta_keywords"/>
+	            </t>
+	            <t t-if=" not meta_keywords">
+	        	<meta name="keywords" t-att-content="main_object and 'website_meta_keywords' in main_object and main_object.website_meta_keywords or website_meta_keywords"/>
+	            </t>
+	        </xpath>
+    </template>
+    
+    <template id="website_sale_categories_inherit" inherit_id="website_sale.products">
+  			<xpath expr="//t[@t-call='website.layout']" position="after">
+	  			<t t-if="seo_product and seo_product.additional_seo_description_position == 'bottom_of_the_page' ">
+	        	<p t-raw="additional_seo_description"/>
+	        	</t>	
+  			</xpath>	
+  			<xpath expr="//div[@id='products_grid']" position="after">
+	  			<t t-if="seo_product and seo_product.additional_seo_description_position == 'under_product_list' ">
+	        	<p t-raw="additional_seo_description"/>
+	        	</t>	
+  			</xpath>	
+  			<xpath expr="//div[@id='products_grid']" position="before">
+	  			<t t-if="title_h1" >
+		        <h1><span t-esc="title_h1"></span></h1>
+		        </t>
+	  		</xpath>	
+  	 </template>
+  	
+  	<!-- <template id="website_sale_products_item_inherit" inherit_id="website_sale.products_item">
+	  		<xpath expr="//a[@itemprop='name']" position="replace">
+	  			<t t-set="product_seo_value_esc" t-value='product.get_value_of_field()'/>
+	  			<t t-if="product_seo_value_esc and product_seo_value_esc['title_h1']" >
+			  		<strong>
+			        <a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" t-esc="product_seo_value_esc['title_h1']" />
+			        </strong>
+	  			</t>
+	  			<t t-if="not product_seo_value_esc">
+			  		<strong>
+			        <a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" t-field="product.name" />
+			        </strong>
+	            </t>
+	  		</xpath>
+  	 </template> -->
+  	 
+  	 <!-- <template id="website_sale_cart_lines_inherit" inherit_id="website_sale.cart_lines" >
+  	 	<xpath expr="//td/div/a/strong" position="replace">
+  	 			<t t-set="product_seo_value" t-value='line.product_id.product_tmpl_id.get_value_of_field()'/>
+  	 			<t t-if="product_seo_value and product_seo_value['title_h1']" >
+	  	 			<strong t-esc="product_seo_value['title_h1']" />
+	  	 		</t>
+	  	 		<t t-if="not product_seo_value">
+	  	 			<strong t-esc="line.product_id.with_context(display_default_code=False).display_name" />
+	  	 		</t>
+  	 	</xpath>
+  	 </template> -->
+  	 
+  	 <!-- <template id="website_sale_payment_inherit" inherit_id="website_sale.payment" >
+  	 		<xpath expr="//td/div/strong" position="replace">
+  	 			<t t-set="product_seo_value" t-value='line.product_id.product_tmpl_id.get_value_of_field()'/>
+  	 			<t t-if="product_seo_value and product_seo_value['title_h1']" >
+	  	 			<strong t-esc="product_seo_value['title_h1']" />
+	  	 		</t>
+	  	 		<t t-if="not product_seo_value">
+	  	 			<strong t-field="line.product_id.with_context(display_default_code=False).display_name" />
+	  	 		</t>
+  	 		</xpath>
+  	 </template> -->
+  	 
+  	 <!--  <template id="website_sale_confirmation_inherit" inherit_id="website_sale.confirmation" >
+  	 		<xpath expr="//td/div/a/strong" position="replace">
+  	 			<t t-set="product_seo_value" t-value='line.product_id.product_tmpl_id.get_value_of_field()'/>
+  	 			<t t-if="product_seo_value and product_seo_value['title_h1']" >
+	  	 			<strong t-esc="product_seo_value['title_h1']" />
+	  	 		</t>
+	  	 		<t t-if="not product_seo_value">
+	  	 			<strong t-esc="line.product_id.with_context(display_default_code=False).display_name"/>
+	  	 		</t>
+  	 		</xpath>
+  	 </template>
+  	  -->
+</flectra>

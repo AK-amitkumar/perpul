@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<!-- Copyright (c) 2017-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+	<!-- See LICENSE URL <https://store.webkul.com/license.html/> for full copyright and licensing details. -->
+	 <template 
+          id="flectra_multi_channel_sale.assets_backend" 
+          name="flectra_multi_channel_sale popup" 
+          inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/flectra_multi_channel_sale/static/src/js/flectra_multi_channel_sale.js"></script>
+                 
+                <link rel="stylesheet" href="/flectra_multi_channel_sale/static/src/less/channel_dashboard.less"/>
+                <link rel="stylesheet" href="/flectra_multi_channel_sale/static/src/less/flectra_multi_channel_sale.less"/>
+            </xpath>
+    </template>
+
+</openerp>

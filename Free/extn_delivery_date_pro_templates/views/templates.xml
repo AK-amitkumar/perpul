@@ -1,0 +1,129 @@
+<flectra>
+    <data>
+		<template id="inherit_100_miles" inherit_id="professional_templates.INVOICE_13_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+				<div t-if="o.delivery_date" t-attf-style="{{div_style}}">
+					<strong style="white-space:nowrap;">Delivery Date:</strong>
+					<span t-field="o.delivery_date"/>
+				</div>
+			</xpath>
+		</template>
+
+		<template id="inherit_classic" inherit_id="professional_templates.INVOICE_2_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date" t-attf-style="{{div_style}}">
+						 <strong style="white-space:nowrap;">Delivery Date:</strong>
+						<p t-field="o.delivery_date"/>
+				   </div>
+			</xpath>
+		</template>
+
+		<template id="inherit_dl_envelope" inherit_id="professional_templates.INVOICE_0_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date" t-attf-style="{{div_style}}">
+						 <strong style="white-space:nowrap;">Delivery Date:</strong>
+						<p t-field="o.delivery_date"/>
+				   </div>
+			</xpath>
+		</template>
+
+		<template id="inherit_military" inherit_id="professional_templates.INVOICE_7_document">
+				<xpath expr="//div[@t-attf-class='#{div_class}']//ul//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<strong style="white-space:nowrap;">Delivery Date:</strong>
+                     </div>
+				</xpath>
+				<xpath expr="//div[@t-attf-class='#{div_class} text-right']//ul//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<span t-field="o.delivery_date"/>
+					</div>
+				</xpath>
+		</template>
+
+		<template id="inherit_slim" inherit_id="professional_templates.INVOICE_9_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<strong style="white-space:nowrap;">Delivery Date: </strong>
+						<span t-field="o.delivery_date"/>
+					</div>
+			</xpath>
+		</template>
+
+		<template id="inherit_western" inherit_id="professional_templates.INVOICE_8_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+				<xpath expr="//div[@t-attf-class='#{div_class}']//ul//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<strong style="white-space:nowrap;">Delivery Date:</strong>
+                     </div>
+				</xpath>
+				<xpath expr="//div[@t-attf-class='#{div_class} text-right']//ul//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<span t-field="o.delivery_date"/>
+					</div>
+				</xpath>
+			</xpath>
+		</template>
+
+		<template id="inherit_clean" inherit_id="professional_templates.INVOICE_11_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date" t-attf-style="{{div_style}}">
+                        <strong t-attf-style="{{strong_style}}">Delivery Date: </strong>
+                        <span t-field="o.delivery_date"/>
+                    </div>
+			</xpath>
+		</template>
+
+		<template id="inherit_modern" inherit_id="professional_templates.INVOICE_1_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+				<div t-if="o.delivery_date" t-attf-style="{{div_style}}">
+					<strong style="white-space:nowrap;">Delivery Date:</strong>
+					<span t-field="o.delivery_date"/>
+				</div>
+			</xpath>
+		</template>
+
+		<template id="inherit_band" inherit_id="professional_templates.INVOICE_6_document">
+				<xpath expr="//div[@t-attf-class='#{div_class}']//ul//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<strong style="white-space:nowrap;">Delivery Date:</strong>
+                     </div>
+				</xpath>
+				<xpath expr="//div[@t-attf-class='#{div_class} text-right']//ul//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<span t-field="o.delivery_date"/>
+					</div>
+				</xpath>
+		</template>
+
+		<template id="inherit_cubic" inherit_id="professional_templates.INVOICE_10_document">
+				<xpath expr="//div[@t-attf-class='#{div_class}']//ul//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<strong style="white-space:nowrap;">Delivery Date:</strong>
+                     </div>
+				</xpath>
+				<xpath expr="//div[@t-attf-class='#{div_class} text-right']//ul//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date">
+						<span t-field="o.delivery_date"/>
+					</div>
+				</xpath>
+		</template>
+
+		<template id="inherit_retro" inherit_id="professional_templates.INVOICE_3_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+					<div t-if="o.delivery_date" t-attf-style="{{div_style}}">
+						 <strong style="white-space:nowrap;">Delivery Date:</strong>
+						<p t-field="o.delivery_date" style="margin-bottom:1px;"/>
+				   </div>
+			</xpath>
+		</template>
+
+		<template id="inherit_tva" inherit_id="professional_templates.INVOICE_4_document">
+			<xpath expr="//div[@t-if='o.date_invoice']" position="after">
+				<div t-if="o.delivery_date" t-attf-style="{{div_style}}">
+					<strong style="white-space:nowrap;">Delivery Date:</strong>
+					<p t-field="o.delivery_date"/>
+				</div>
+			</xpath>
+		</template>
+    </data>
+</flectra>

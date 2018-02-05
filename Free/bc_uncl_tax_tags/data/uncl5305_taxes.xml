@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="tax_tag_uncl5305_s" model="account.account.tag">
+                <field name="name">Standard rate</field>
+                <field name="applicability">taxes</field>
+        </record>
+
+        <record id="tax_tag_uncl5305_h" model="account.account.tag">
+                <field name="name">Reduced rate - food</field>
+                <field name="applicability">taxes</field>
+        </record>
+
+        <record id="tax_tag_uncl5305_r" model="account.account.tag">
+                <field name="name">Unprocessed fish</field>
+                <field name="applicability">taxes</field>
+        </record>
+
+        <record id="tax_tag_uncl5305_aa" model="account.account.tag">
+                <field name="name">Low rate</field>
+                <field name="applicability">taxes</field>
+        </record>
+
+        <record id="tax_tag_uncl5305_e" model="account.account.tag">
+                <field name="name">Tax exempt</field>
+                <field name="applicability">taxes</field>
+        </record>
+
+        <record id="tax_tag_uncl5305_z" model="account.account.tag">
+                <field name="name">Zero rate (outside of legislative area)</field>
+                <field name="applicability">taxes</field>
+        </record>
+
+        <record id="tax_tag_uncl5305_k" model="account.account.tag">
+                <field name="name">Climate quotas</field>
+                <field name="applicability">taxes</field>
+        </record>
+</data>
+    </openerp>

@@ -1,0 +1,46 @@
+# Translation of Perpul Server.
+# This file contains the translation of the following modules:
+# 	* bc_invoice_select_bank
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Perpul Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-03 08:06+0000\n"
+"PO-Revision-Date: 2017-08-03 10:09+0200\n"
+"Last-Translator: Torvald Baade Bringsvor <bringsvor@bringsvor.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: nb_NO\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: bc_invoice_select_bank
+#: code:addons/bc_invoice_select_bank/account_invoice.py:46
+#, python-format
+msgid "Customer Invoices must have a payable bank account set."
+msgstr "Kundefakturaer må ha en konto å betale til."
+
+#. module: bc_invoice_select_bank
+#: model:ir.model,name:bc_invoice_select_bank.model_account_invoice
+msgid "Invoice"
+msgstr "Faktura"
+
+#. module: bc_invoice_select_bank
+#: code:addons/bc_invoice_select_bank/account_invoice.py:94
+#, python-format
+msgid "Not able to determine payable bank account"
+msgstr "Klarer ikke å bestemme betalingsbankkonto."
+
+#. module: bc_invoice_select_bank
+#: model:ir.model.fields,field_description:bc_invoice_select_bank.field_account_invoice_payable_bank_id
+msgid "Payable to"
+msgstr "Betales til"
+
+#. module: bc_invoice_select_bank
+#: code:addons/bc_invoice_select_bank/account_invoice.py:58
+#, python-format
+msgid "Wrong bank account. Bank currency %s Invoice currency %s"
+msgstr "Feil bankkonto. Bankvaluta %s Fakturavaluta %s"

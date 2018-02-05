@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>  
+
+	 <record id="view_seo_template_setting_form" model="ir.ui.view">
+            <field name="name">seo.template.setting.form</field>
+            <field name="model">seo.template.setting</field>
+            <field name="arch" type="xml">
+                <form string="arch" create="false">
+                <group string="SEO Setting">
+                	<field name="name" invisible="1"></field>
+                	<group>
+                	<!-- <label for="product_name_limit"/>
+                	<div>
+                	<field name="product_name_limit" class="oe_inline"></field><span style="padding-left: 3px;" class="fa fa-question-circle" aria-hidden="true" title='Crop product name. If you set value less than 10, Recommended value 25 will be taken by default.'/>
+                	 </div> -->
+	                <label for="meta_title_limit"/>
+	                <div>
+                	<field name="meta_title_limit" class="oe_inline"></field><span style="padding-left: 3px;" class="fa fa-question-circle" aria-hidden="true" title='Crop meta title using max length value. Recommended length up to 55 characters. If you set value less than 25, Recommended value 55 will be taken by default.'/>
+                	</div>
+                	<label for="meta_description_limit"/>
+                	<div>
+                	<field name="meta_description_limit" class="oe_inline"></field><span style="padding-left: 3px;" class="fa fa-question-circle" aria-hidden="true" title='Crop meta description using max length value. Recommended length up to 150 characters. If you set value less than 25, Recommended value 150 will be taken by default.'/>
+	                </div>
+                	</group>
+                </group>
+                </form>
+            </field>
+     </record>
+     
+      <record id="view_seo_template_setting_tree" model="ir.ui.view">
+            <field name="name">seo.template.setting.tree</field>
+            <field name="model">seo.template.setting</field>
+            <field name="arch" type="xml">
+            <tree create="false">
+            	<field name="name"></field>
+            	<!-- <field name="product_name_limit"></field> -->
+            	<field name="meta_title_limit"></field>
+            	<field name="meta_description_limit"></field>
+            </tree>
+            </field>
+      </record>
+     
+	<record id="seo_template_setting_action" model="ir.actions.act_window">
+        <field name="name">SEO Configuration</field>
+        <field name="res_model">seo.template.setting</field>	
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+   </record>
+
+	
+   <menuitem id="menu_seo_settings" name="SEO Configuration"
+   		action="seo_template_setting_action"
+   		groups="seo_suite_flectra_ecommerce.group_seo_manager"
+        parent="website.menu_website_global_configuration"/>
+</flectra>
+        

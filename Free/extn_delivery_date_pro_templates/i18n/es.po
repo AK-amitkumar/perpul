@@ -1,0 +1,41 @@
+# Translation of Perpul Server.
+# This file contains the translation of the following modules:
+#	* extn_delivery_date_pro_templates
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Perpul Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-06 12:15+0000\n"
+"PO-Revision-Date: 2017-12-06 12:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: extn_delivery_date_pro_templates
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_slim
+msgid "<strong style=\"white-space:nowrap;\">Delivery Date: </strong>"
+msgstr ""
+
+#. module: extn_delivery_date_pro_templates
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_100_miles
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_band
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_classic
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_cubic
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_dl_envelope
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_military
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_modern
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_retro
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_tva
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_western
+msgid "<strong style=\"white-space:nowrap;\">Delivery Date:</strong>"
+msgstr ""
+
+#. module: extn_delivery_date_pro_templates
+#: model:ir.ui.view,arch_db:extn_delivery_date_pro_templates.inherit_clean
+msgid "Delivery Date:"
+msgstr ""
+

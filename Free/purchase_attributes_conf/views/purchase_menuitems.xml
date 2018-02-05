@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<flectra>
+
+    <menuitem id="menu_variants_action"
+              action="product.variants_action"
+              parent="purchase.menu_product_in_config_purchase"
+              sequence="2"
+              groups="purchase.group_purchase_manager"
+    />
+
+    <menuitem id="menu_attribute_action"
+              action="product.attribute_action"
+              parent="purchase.menu_product_in_config_purchase"
+              sequence="1"
+              groups="purchase.group_purchase_manager"
+    />
+
+</flectra>
